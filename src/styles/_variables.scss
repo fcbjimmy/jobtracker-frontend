@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+$font-stack: (
+  'monserrat': 'Montserrat',
+  'sansserif': sans-serif,
+  'inter': 'Inter',
+);
+
+$colors: (
+  'black': #14161a,
+  'white': #ffffff,
+  'main': #28a5e9,
+  'font': #3d4852,
+  'nav': #fafafa,
+  'navborder': #fbfbfb,
+  'nav-font': #606f7b,
+  'hero-font': #111827,
+  'sky': #87ceeb,
+  'line': #e5e7eb,
+  'green': #3cd070,
+  'red': #ff6347,
+  'gold': #f59e0c,
+);
+
+//vh vw
+$size: (
+  'max-width': 100vw,
+  'nav-height': 8rem,
+);
+
+@mixin input() {
+  width: 100%;
+  background-color: lighten(map-get($colors, 'nav-font'), 60%);
+  padding: 0.8rem 1rem;
+  border: 2px solid lighten(map-get($colors, 'nav-font'), 50%);
+  margin: 8px 0;
+  border-radius: 4px;
+}
+
+$shadow: 5px 5px 15px -4px #000000;
+
+//media queries
+$breakpoints: (
+  'sm': 670px,
+  'md': 768px,
+  'test': 1000px,
+  'l': 948px,
+  'xl': 1340px,
+);
+
+@mixin wideScreen() {
+  @media screen and (min-width: map-get($breakpoints, 'xl')) {
+    @content;
+  }
+}
+
+@mixin largerthanphone() {
+  @media screen and (min-width: map-get($breakpoints, 'md')) {
+    @content;
+  }
+}
+
+@mixin test() {
+  @media screen and (min-width: map-get($breakpoints, 'sm')) {
+    @content;
+  }
+}
+@mixin tabletMedia() {
+  @media screen and (min-width: map-get($breakpoints, 'l')) {
+    @content;
+  }
+}

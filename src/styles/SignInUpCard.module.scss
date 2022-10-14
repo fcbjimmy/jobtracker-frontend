@@ -1,0 +1,64 @@
+@use './variables' as mixin;
+
+.section {
+  max-width: map-get(mixin.$size, 'max-width');
+  min-height: calc(100vh - map-get(mixin.$size, 'nav-height'));
+  position: relative;
+}
+
+.container {
+  width: 20rem;
+  position: absolute;
+  inset: 0;
+  margin: 4rem auto;
+}
+
+.container form {
+  border: solid lighten(map-get(mixin.$colors, 'nav-font'), 50%) 2px;
+  border-radius: 0.5rem;
+}
+.container h1 {
+  padding-top: 1.5rem;
+  padding-left: 1rem;
+}
+
+.container ul {
+  padding-top: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  list-style-type: none;
+  min-height: 15rem;
+}
+
+.container li {
+  display: flex;
+  flex-direction: column;
+  margin: 0.3rem 0;
+}
+
+.container input {
+  @include mixin.input;
+}
+
+li .error {
+  font-size: 0.7rem;
+  color: red;
+}
+
+li .paragraph {
+  font-size: 0.9rem;
+}
+
+a {
+  color: map-get(mixin.$colors, 'main');
+}
+
+a:hover {
+  color: darken(map-get(mixin.$colors, 'main'), 10%);
+}
+
+.container input:focus {
+  outline: none;
+  border-color: map-get(mixin.$colors, 'main');
+  background-color: map-get(mixin.$colors, 'white');
+}
