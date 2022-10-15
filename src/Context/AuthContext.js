@@ -19,7 +19,7 @@ export const AuthContextProvider = ({ children }) => {
   console.log('AuthContext state: ', state);
 
   const authFetch = axios.create({
-    baseURL: '/api/v1',
+    baseURL: 'https://jobtracker-backend.onrender.com/api/v1',
   });
 
   authFetch.interceptors.request.use(
