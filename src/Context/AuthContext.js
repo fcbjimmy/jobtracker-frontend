@@ -16,8 +16,6 @@ export const AuthContextProvider = ({ children }) => {
     jobs: [],
   });
 
-  console.log('AuthContext state: ', state);
-
   const authFetch = axios.create({
     baseURL: 'https://jobtracker-backend.onrender.com/api/v1',
   });
@@ -137,7 +135,6 @@ export const AuthContextProvider = ({ children }) => {
   };
 
   const editSingleJob = async ({ data, jobId, id }) => {
-    console.log(data, jobId);
     try {
       dispatch({ type: 'SETUP_EDIT_BEGIN' });
       const response = await authFetch.patch(`/jobs/updateJob/${jobId}`, {
@@ -151,7 +148,6 @@ export const AuthContextProvider = ({ children }) => {
   };
 
   const deleteSingleJob = async ({ jobId }) => {
-    console.log('job state: ', state.jobs);
     try {
       dispatch({ type: 'SETUP_DELETE_BEGIN' });
       const response = await authFetch.delete(`/jobs/${jobId}`);
@@ -170,7 +166,7 @@ export const AuthContextProvider = ({ children }) => {
       const { data: userData } = await authFetch.patch('/user/updateUser', {
         ...data,
       });
-      console.log(userData);
+
       const { token, user } = userData;
       setUserToLocalStorage({ token, user });
       dispatch({

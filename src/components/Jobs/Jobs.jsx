@@ -9,7 +9,6 @@ const Jobs = () => {
   const { jobs, deleteSingleJob } = useAuthContext();
   let navigate = useNavigate();
   const [filteredValue, setFilteredValue] = useState('');
-  console.log(filteredValue);
   return (
     <Container title={'Jobs'} filter={true} setFilteredValue={setFilteredValue}>
       <div className={style.grid}>
@@ -17,10 +16,12 @@ const Jobs = () => {
           ?.sort(function (a, b) {
             return new Date(a.date) - new Date(b.date);
           })
-          ?.filter((job) => {
+          .filter((job) => {
             if (job.status === filteredValue) {
-              return jobs;
-            } else return jobs;
+              return job;
+            } else if (filteredValue === '') {
+              return job;
+            }
           })
           .map((job, index) => {
             const { _id: jobId } = job;

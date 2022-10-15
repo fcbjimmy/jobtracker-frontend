@@ -31,24 +31,6 @@ const SignUp = () => {
     }
   }, [user]);
 
-  // console.log(error?.response?.data);
-
-  // const onSubmitHandler = async (data) => {
-  //   // console.log(JSON.stringify(data));
-  //   const { confirmPassword, name, email, password } = data;
-  //   try {
-  //     const response = await axios.post("/auth/register", {
-  //       name,
-  //       email,
-  //       password,
-  //     });
-  //     console.log(response);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  //   reset();
-  // };
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}

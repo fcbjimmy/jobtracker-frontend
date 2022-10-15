@@ -19,8 +19,6 @@ const Dashboard = () => {
     }
   }, [user]);
 
-  console.log('testing', jobs);
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
