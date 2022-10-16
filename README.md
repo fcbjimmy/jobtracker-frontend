@@ -8,7 +8,7 @@ Front-end
 React JS  
 SCSS
 
-Server https://github.com/fcbjimmy/jobtracker-backend
+Server https://github.com/fcbjimmy/jobtracker-backend  
 MongoDB  
 Node/Express JS
 
