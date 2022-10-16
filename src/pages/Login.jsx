@@ -43,6 +43,7 @@ const Login = () => {
         <div className={style.container}>
           <form onSubmit={handleSubmit(onSubmitHandler)}>
             <h1>Log In</h1>
+            {isLoading && <h5>Redirecting...</h5>}
             <ul className={style.ulist}>
               <li>
                 <p className={style.error}>{errors.email?.message}</p>
