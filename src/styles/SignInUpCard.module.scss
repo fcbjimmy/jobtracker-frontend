@@ -21,6 +21,11 @@
   padding-top: 1.5rem;
   padding-left: 1rem;
 }
+.container h5 {
+  padding-top: 1rem;
+  padding-left: 1rem;
+  color: map-get(mixin.$colors, 'green');
+}
 
 .container ul {
   padding-top: 0.5rem;
