@@ -21,4 +21,4 @@ npm start / yarn start
 
 ## Link
 
-https://dashboard.render.com/static/srv-cd57k302i3mphk7avqlg/events
+https://jobtracker-frontend.onrender.com/
