@@ -4,8 +4,11 @@ Authetencation page with Login and Sign up.
 
 Technologies used
 
+Front-end  
 React JS  
-SCSS  
+SCSS
+
+Server https://github.com/fcbjimmy/jobtracker-backend
 MongoDB  
 Node/Express JS
 
