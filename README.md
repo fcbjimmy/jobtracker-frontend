@@ -1,6 +1,6 @@
 # Job Tracker
 
-Authetencation page with Login and Sign up.
+Simple job tracker which user can track job applications with login and signup. App can create, edit, delete job applications.
 
 Technologies used
 
