@@ -1,11 +1,8 @@
 import style from './Button.module.scss';
-import { useAuthContext } from '../../hooks/useAuthContext';
 
-const Button = ({ children }) => {
-  const { isLoading } = useAuthContext();
-
+const Button = ({ children, type, isLoading }) => {
   return (
-    <button disabled={isLoading} className={style.button}>
+    <button disabled={isLoading} type={type} className={style.button}>
       {children}
     </button>
   );
