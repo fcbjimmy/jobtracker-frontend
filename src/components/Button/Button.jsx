@@ -1,5 +1,5 @@
 import style from './Button.module.scss';
-import { useAuthContext } from '../hooks/useAuthContext';
+import { useAuthContext } from '../../hooks/useAuthContext';
 
 const Button = ({ children, type }) => {
   const { isLoading } = useAuthContext();
