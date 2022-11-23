@@ -1,10 +1,43 @@
-import { useContext } from "react";
-import { AuthContext } from "../Context/AuthContext";
+import { useContext } from 'react';
+import { AuthContext } from '../Context/AuthContext';
 
 export const useAuthContext = () => {
-  const context = useContext(AuthContext);
-  if (!context) {
-    throw Error("useAuthContext must be used inside an AuthContextProvider");
+  const contextValue = useContext(AuthContext);
+  const {
+    state,
+    dispatch,
+    registerUser,
+    loginUser,
+    logoutUser,
+    createJob,
+    editSingleJob,
+    deleteSingleJob,
+    allJobs,
+    editUserInfo,
+    authFetch,
+    setToggleModal,
+    toggleModal,
+    deleteJobId,
+    setDeleteJobId,
+  } = contextValue;
+  if (!contextValue) {
+    throw Error('useAuthContext must be used inside an AuthContextProvider');
   }
-  return context;
+  return {
+    ...state,
+    dispatch,
+    registerUser,
+    loginUser,
+    logoutUser,
+    createJob,
+    editSingleJob,
+    deleteSingleJob,
+    allJobs,
+    editUserInfo,
+    authFetch,
+    setToggleModal,
+    toggleModal,
+    deleteJobId,
+    setDeleteJobId,
+  };
 };

@@ -6,10 +6,13 @@ import { useAuthContext } from './hooks/useAuthContext';
 import { Navigate } from 'react-router-dom';
 import { Navbar, SideNav } from './components/';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import { useEffect } from 'react';
 
 function App() {
   const { user } = useAuthContext();
+  // console.log(user);
 
+  // useEffect(() => {}, [user]);
   return (
     <>
       <HelmetProvider>

@@ -25,7 +25,7 @@ export const AuthContextProvider = ({ children }) => {
 
   authFetch.interceptors.request.use(
     (config) => {
-      config.headers.common['Authorization'] = `Bearer ${state?.token}`;
+      config.headers['Authorization'] = `Bearer ${state?.token}`;
       return config;
     },
     (error) => {
@@ -127,7 +127,7 @@ export const AuthContextProvider = ({ children }) => {
     try {
       dispatch({ type: 'SETUP_JOB_BEGIN' });
       const { data: dataReceived } = await authFetch.post('/jobs', { ...data });
-      dispatch({ type: 'GET_JOBS' });
+      dispatch({ type: 'CREATE_JOB', payload: dataReceived.job });
       toast.success(`${dataReceived.msg}`, { position: 'top-center' });
     } catch (error) {
       console.log(error);
@@ -185,27 +185,23 @@ export const AuthContextProvider = ({ children }) => {
     }
   };
 
-  return (
-    <AuthContext.Provider
-      value={{
-        ...state,
-        dispatch,
-        registerUser,
-        loginUser,
-        logoutUser,
-        createJob,
-        editSingleJob,
-        deleteSingleJob,
-        allJobs,
-        editUserInfo,
-        authFetch,
-        setToggleModal,
-        toggleModal,
-        deleteJobId,
-        setDeleteJobId,
-      }}
-    >
-      {children}
-    </AuthContext.Provider>
-  );
+  const contextValue = {
+    state,
+    dispatch,
+    registerUser,
+    loginUser,
+    logoutUser,
+    createJob,
+    editSingleJob,
+    deleteSingleJob,
+    allJobs,
+    editUserInfo,
+    authFetch,
+    setToggleModal,
+    toggleModal,
+    deleteJobId,
+    setDeleteJobId,
+  };
+
+  return <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>;
 };
